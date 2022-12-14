@@ -1,7 +1,5 @@
 spring:
   jpa:
-    hibernate:
-      ddl-auto: none
     properties:
       javax:
         persistence:
@@ -12,10 +10,13 @@ spring:
               create-target: create.sql
       hibernate:
         hbm2ddl:
-          delimiter: ;
+          delimiter:
+            - ";"
         jdbc:
           lob:
             non_contextual_creation: true
+    hibernate:
+      ddl-auto: none
   datasource:
     url: jdbc:postgresql://localhost:5432/db_hr_worker
     username: postgres
